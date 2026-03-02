@@ -1,11 +1,17 @@
 cmake_minimum_required(VERSION 3.8)
 project(robot_arm_urdf)
 
-# ROS 2 uses ament_cmake
+# 1. Use ament_cmake instead of catkin
 find_package(ament_cmake REQUIRED)
 
-# Install directories (config, launch, meshes, urdf) to the share folder
-# This replaces the 'foreach' loop and catkin-specific variables
+# 2. Find dependencies individually (ROS 2 style)
+find_package(urdf REQUIRED)
+find_package(xacro REQUIRED)
+find_package(std_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
+
+# 3. Install your folders so 'ros2 launch' can find them
+# This replaces the 'foreach' loop and CATKIN_PACKAGE_SHARE_DESTINATION
 install(DIRECTORY
   config
   launch
@@ -14,5 +20,5 @@ install(DIRECTORY
   DESTINATION share/${PROJECT_NAME}
 )
 
-# This replaces catkin_package() and MUST be at the end
+# 4. REQUIRED: This must be the very last line
 ament_package()

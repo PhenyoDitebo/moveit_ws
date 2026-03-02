@@ -4,18 +4,26 @@
   <name>robot_arm_urdf</name>
   <version>1.0.0</version>
   <description>URDF Description package for robot_arm_urdf</description>
-  <maintainer email="TODO@email.com">TODO</maintainer>
+  <maintainer email="work.riven100@gmail.com">Phenyo Ditebo</maintainer>
   <license>BSD</license>
 
-  <!-- ROS 2 Build Tool -->
+  <!-- Modern ROS 2 Build Tool -->
   <buildtool_depend>ament_cmake</buildtool_depend>
 
-  <!-- ROS 2 Dependencies -->
+  <!-- Replaced ROS 1 dependencies with ROS 2 equivalents -->
+  <depend>rclcpp</depend>
+  <depend>rclpy</depend>
+  <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>urdf</depend>
+  <depend>xacro</depend>
+  
+  <!-- Execution Dependencies for URDF/MoveIt -->
   <exec_depend>robot_state_publisher</exec_depend>
-  <exec_depend>rviz2</exec_depend>
   <exec_depend>joint_state_publisher</exec_depend>
   <exec_depend>joint_state_publisher_gui</exec_depend>
-  <exec_depend>xacro</exec_depend>
+  <exec_depend>rviz2</exec_depend>
+  <exec_depend>tf2_ros</exec_depend>
 
   <export>
     <build_type>ament_cmake</build_type>
