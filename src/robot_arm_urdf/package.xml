@@ -17,6 +17,16 @@
   <depend>geometry_msgs</depend>
   <depend>urdf</depend>
   <depend>xacro</depend>
+
+  <depend>controller_manager</depend>
+  <depend>ros2_control</depend>
+  <depend>ros2_controllers</depend>
+  <depend>gazebo_ros2_control</depend>
+  
+  <exec_depend>joint_state_broadcaster</exec_depend>
+  <exec_depend>joint_trajectory_controller</exec_depend>
+
+
   
   <!-- Execution Dependencies for URDF/MoveIt -->
   <exec_depend>robot_state_publisher</exec_depend>

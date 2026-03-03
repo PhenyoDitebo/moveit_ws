@@ -1,0 +1,42 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Hz
+
+    # joints that deal with diff parts of the arm, e.g. arm, end effector, need diff controllers
+    #need a controller that cont publishes the states of the joints.
+
+    # You must declare the controllers here first
+    robot_arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    hand_ee_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+# Now define the parameters for each controller
+robot_arm_controller:
+  ros__parameters:
+    joints:
+      - joint_1
+      - joint_2
+      - joint_3
+      - joint_4
+      - joint_5
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+
+hand_ee_controller:
+  ros__parameters:
+    joints:
+      - joint_6
+      - joint_7
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
