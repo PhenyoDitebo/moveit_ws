@@ -1,0 +1,20 @@
+<launch>
+  <node pkg="robot_state_publisher" exec="robot_state_publisher" name="robot_state_publisher">
+    <param name="robot_description" value="$(command 'xacro $(find-pkg-share robot_arm_urdf)/urdf/robot_arm_urdf.urdf')"/>
+    <param name="use_sim_time" value="true"/>
+  </node>
+
+  <include file="$(find-pkg-share gazebo_ros)/launch/gazebo.launch.py"/>
+
+  <node pkg="gazebo_ros" exec="spawn_entity.py" name="spawn_entity" output="screen"
+        args="-topic robot_description -entity robot_arm_urdf -z 0.1"/>
+
+  <node pkg="controller_manager" exec="spawner" name="joint_state_spawner"
+        args="joint_state_broadcaster"/>
+
+  <node pkg="controller_manager" exec="spawner" name="arm_controller_spawner"
+        args="robot_arm_controller"/>
+
+  <node pkg="controller_manager" exec="spawner" name="hand_controller_spawner"
+        args="hand_ee_controller"/>
+</launch>
