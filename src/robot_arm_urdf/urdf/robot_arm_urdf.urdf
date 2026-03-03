@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <robot name="robot_arm_urdf">
 
-  <link name="world"/> 
-
-  <joint name="base_joint" type="fixed"> 
-    <parent link="world"/> 
-    <child link="base_link"/> 
-    <origin rpy="0 0 0" xyz="0.0 0.0 0.17"/> 
-  </joint>
+  <link name="world"/>
 
   <link name="base_link">
     <inertial>
@@ -18,7 +12,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://robot_arm_urdf/meshes/base_link.STL" />
+        <mesh filename="package://robot_arm_urdf/meshes/base_link.STL" scale="0.001 0.001 0.001" />
       </geometry>
       <material name="silver">
         <color rgba="0.79216 0.81961 0.93333 1" />
@@ -27,10 +21,16 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://robot_arm_urdf/meshes/base_link.STL" />
+        <mesh filename="package://robot_arm_urdf/meshes/base_link.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </collision>
   </link>
+
+  <joint name="base_joint" type="fixed">
+    <parent link="world"/>
+    <child link="base_link"/>
+    <origin rpy="0 0 0" xyz="0.0 0.0 0.17"/>
+  </joint>
 
   <link name="link_1">
     <inertial>
@@ -41,7 +41,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://robot_arm_urdf/meshes/link_1.STL" />
+        <mesh filename="package://robot_arm_urdf/meshes/link_1.STL" scale="0.001 0.001 0.001" />
       </geometry>
       <material name="white">
         <color rgba="1 1 1 1" />
@@ -50,7 +50,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://robot_arm_urdf/meshes/link_1.STL" />
+        <mesh filename="package://robot_arm_urdf/meshes/link_1.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </collision>
   </link>
@@ -72,13 +72,13 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://robot_arm_urdf/meshes/link_2.STL" />
+        <mesh filename="package://robot_arm_urdf/meshes/link_2.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://robot_arm_urdf/meshes/link_2.STL" />
+        <mesh filename="package://robot_arm_urdf/meshes/link_2.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </collision>
   </link>
@@ -100,13 +100,13 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://robot_arm_urdf/meshes/link_3.STL" />
+        <mesh filename="package://robot_arm_urdf/meshes/link_3.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://robot_arm_urdf/meshes/link_3.STL" />
+        <mesh filename="package://robot_arm_urdf/meshes/link_3.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </collision>
   </link>
@@ -128,13 +128,13 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://robot_arm_urdf/meshes/link_4.STL" />
+        <mesh filename="package://robot_arm_urdf/meshes/link_4.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://robot_arm_urdf/meshes/link_4.STL" />
+        <mesh filename="package://robot_arm_urdf/meshes/link_4.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </collision>
   </link>
@@ -156,13 +156,13 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://robot_arm_urdf/meshes/link_5.STL" />
+        <mesh filename="package://robot_arm_urdf/meshes/link_5.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://robot_arm_urdf/meshes/link_5.STL" />
+        <mesh filename="package://robot_arm_urdf/meshes/link_5.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </collision>
   </link>
@@ -184,13 +184,13 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://robot_arm_urdf/meshes/link_6.STL" />
+        <mesh filename="package://robot_arm_urdf/meshes/link_6.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://robot_arm_urdf/meshes/link_6.STL" />
+        <mesh filename="package://robot_arm_urdf/meshes/link_6.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </collision>
   </link>
@@ -212,13 +212,13 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://robot_arm_urdf/meshes/link_7.STL" />
+        <mesh filename="package://robot_arm_urdf/meshes/link_7.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://robot_arm_urdf/meshes/link_7.STL" />
+        <mesh filename="package://robot_arm_urdf/meshes/link_7.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </collision>
   </link>
@@ -231,54 +231,48 @@
     <limit lower="-0.03" upper="0" effort="100" velocity="3" />
   </joint>
 
-  <ros2_control name="GazeboSystem" type="system">
+  <ros2_control name="GazeboSimSystem" type="system">
     <hardware>
-      <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+      <plugin>gz_ros2_control/GazeboSimSystem</plugin>
     </hardware>
     <joint name="joint_1">
       <command_interface name="position"/>
-      <state_interface name="position"> <param name="initial_value">0.0</param> </state_interface>
+      <state_interface name="position"><param name="initial_value">0.0</param></state_interface>
       <state_interface name="velocity"/>
     </joint>
     <joint name="joint_2">
       <command_interface name="position"/>
-      <state_interface name="position"> <param name="initial_value">0.0</param> </state_interface>
+      <state_interface name="position"><param name="initial_value">0.0</param></state_interface>
       <state_interface name="velocity"/>
     </joint>
     <joint name="joint_3">
       <command_interface name="position"/>
-      <state_interface name="position"> <param name="initial_value">0.0</param> </state_interface>
+      <state_interface name="position"><param name="initial_value">0.0</param></state_interface>
       <state_interface name="velocity"/>
     </joint>
     <joint name="joint_4">
       <command_interface name="position"/>
-      <state_interface name="position"> <param name="initial_value">0.0</param> </state_interface>
+      <state_interface name="position"><param name="initial_value">0.0</param></state_interface>
       <state_interface name="velocity"/>
     </joint>
     <joint name="joint_5">
       <command_interface name="position"/>
-      <state_interface name="position"> <param name="initial_value">0.0</param> </state_interface>
+      <state_interface name="position"><param name="initial_value">0.0</param></state_interface>
       <state_interface name="velocity"/>
     </joint>
     <joint name="joint_6">
       <command_interface name="position"/>
-      <state_interface name="position"> <param name="initial_value">0.0</param> </state_interface>
+      <state_interface name="position"><param name="initial_value">0.0</param></state_interface>
       <state_interface name="velocity"/>
     </joint>
     <joint name="joint_7">
       <command_interface name="position"/>
-      <state_interface name="position"> <param name="initial_value">0.0</param> </state_interface>
+      <state_interface name="position"><param name="initial_value">0.0</param></state_interface>
       <state_interface name="velocity"/>
     </joint>
   </ros2_control>
 
-  <gazebo> 
-    <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so"> 
-      <parameters>$(find robot_arm_urdf)/config/arm_controllers.yaml</parameters> 
-    </plugin> 
-  </gazebo>
-
-  <gazebo reference="link_1"><selfCollide>true</selfCollide></gazebo> 
+  <gazebo reference="link_1"><selfCollide>true</selfCollide></gazebo>
   <gazebo reference="link_2"><selfCollide>true</selfCollide></gazebo>
   <gazebo reference="link_3"><selfCollide>true</selfCollide></gazebo>
   <gazebo reference="link_4"><selfCollide>true</selfCollide></gazebo>

@@ -1,10 +1,20 @@
 <launch>
-  <include file="$(find-pkg-share gazebo_ros)/launch/gazebo.launch.py"/>
+  <include file="$(find-pkg-share ros_gz_sim)/launch/gz_sim.launch.py">
+    <arg name="gz_args" value="-r empty.sdf"/> 
+  </include>
 
-  <node pkg="tf2_ros" exec="static_transform_publisher" name="tf_footprint_base"
-        args="0 0 0 0 0 0 base_footprint base_link" />
+  <node pkg="robot_state_publisher" exec="robot_state_publisher" name="robot_state_publisher">
+    <param name="robot_description" value="$(command 'xacro $(find-pkg-share robot_arm_urdf)/urdf/robot_arm_urdf.urdf')"/>
+    <param name="use_sim_time" value="true"/>
+  </node>
 
-  <node pkg="gazebo_ros" exec="spawn_entity.py" name="spawn_model" output="screen"
-        args="-file $(find-pkg-share robot_arm_urdf)/urdf/robot_arm_urdf.urdf -urdf -entity robot_arm_urdf -z 0.1" />
+  <node pkg="ros_gz_sim" exec="create" name="spawn_robot" output="screen"
+        args="-topic robot_description -name robot_arm_urdf -z 0.1"/>
 
-  </launch>
+  <node pkg="ros_gz_bridge" exec="parameter_bridge" name="gz_bridge" output="screen"
+        args="/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock /model/robot_arm_urdf/pose@tf2_msgs/msg/TFMessage[gz.msgs.Pose_V" />
+
+  <node pkg="controller_manager" exec="spawner" name="joint_state_spawner" args="joint_state_broadcaster"/>
+  <node pkg="controller_manager" exec="spawner" name="arm_controller_spawner" args="robot_arm_controller"/>
+  <node pkg="controller_manager" exec="spawner" name="hand_controller_spawner" args="hand_ee_controller"/>
+</launch>
